@@ -7,30 +7,33 @@ import com.bumptech.glide.load.model.ModelLoaderFactory
 import com.bumptech.glide.load.model.MultiModelLoaderFactory
 import java.io.InputStream
 
-class SampleModelLoader(
+class CustomGlideUrlModelLoader(
     private val uriLoader: ModelLoader<GlideUrl, InputStream>
-) : ModelLoader<Sample, InputStream> {
-    private val TAG = "Base64ModelLoader"
+) : ModelLoader<GlideUrl, InputStream> {
+    private val TAG = CustomGlideUrlModelLoader::class.java.simpleName
 
     override fun buildLoadData(
-        model: Sample,
+        model: GlideUrl,
         width: Int,
         height: Int,
         options: Options
     ): ModelLoader.LoadData<InputStream>? {
-        val url =
-            GlideUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/2346px-Android_logo_2019_%28stacked%29.svg.png")
-        return uriLoader.buildLoadData(url, width, height, options)
+        return uriLoader.buildLoadData(
+            GlideUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"),
+            width,
+            height,
+            options
+        )
     }
 
-    override fun handles(model: Sample): Boolean {
+    override fun handles(model: GlideUrl): Boolean {
         return true
     }
 
-    class Factory : ModelLoaderFactory<Sample, InputStream> {
+    class Factory : ModelLoaderFactory<GlideUrl, InputStream> {
 
-        override fun build(multiFactory: MultiModelLoaderFactory): ModelLoader<Sample, InputStream> {
-            return SampleModelLoader(
+        override fun build(multiFactory: MultiModelLoaderFactory): ModelLoader<GlideUrl, InputStream> {
+            return CustomGlideUrlModelLoader(
                 multiFactory.build(GlideUrl::class.java, InputStream::class.java)
             )
         }
@@ -40,4 +43,3 @@ class SampleModelLoader(
         }
     }
 }
-

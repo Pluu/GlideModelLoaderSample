@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,19 +12,47 @@
         android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E91E63"
         android:text="Clear"
-        android:textSize="40sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_sample"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test"
-        android:textSize="40sp" />
+        android:backgroundTint="#E91E63"
+        android:text="Drawable"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_sample2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load"
+        android:textSize="20sp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:constraint_referenced_ids="btn_clear,btn_sample,btn_sample2"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="8dp"
+        app:flow_horizontalStyle="packed"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_android"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flow" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
