@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSample.setOnClickListener {
             Glide.with(this)
-                .load(R.drawable.ic_android)
+                .load("file:///android_asset/android_10.png")
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(binding.iv)
