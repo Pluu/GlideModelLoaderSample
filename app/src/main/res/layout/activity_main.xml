@@ -9,25 +9,31 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_clear"
+        android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E91E63"
         android:text="Clear"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btn_sample"
+        android:id="@+id/btnDrawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E91E63"
         android:text="Drawable"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btn_sample2"
+        android:id="@+id/btnAsset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Aøsset"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E91E63"
         android:text="Load"
         android:textSize="20sp" />
 
@@ -36,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        app:constraint_referenced_ids="btn_clear,btn_sample,btn_sample2"
+        app:constraint_referenced_ids="btnClear,btnDrawable,btnAsset,btnCustom"
         app:flow_horizontalBias="0"
         app:flow_horizontalGap="8dp"
         app:flow_horizontalStyle="packed"
@@ -47,9 +53,8 @@
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_android"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

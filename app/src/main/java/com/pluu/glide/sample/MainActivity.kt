@@ -16,7 +16,13 @@ class MainActivity : AppCompatActivity() {
             binding.iv.setImageDrawable(null)
         }
 
-        binding.btnSample.setOnClickListener {
+        binding.btnDrawable.setOnClickListener {
+            Glide.with(this)
+                .load(R.drawable.ic_android)
+                .into(binding.iv)
+        }
+
+        binding.btnAsset.setOnClickListener {
             Glide.with(this)
                 .load("file:///android_asset/android_10.png")
                 .skipMemoryCache(true)
@@ -24,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 .into(binding.iv)
         }
 
-        binding.btnSample2.setOnClickListener {
+        binding.btnCustom.setOnClickListener {
             Glide.with(this)
                 .load("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/647px-Apple_logo_grey.svg.png")
                 .skipMemoryCache(true)

@@ -9,11 +9,14 @@ import com.bumptech.glide.load.model.ModelLoader
 import com.bumptech.glide.load.model.ModelLoaderFactory
 import com.bumptech.glide.load.model.MultiModelLoaderFactory
 import java.io.InputStream
+import java.util.*
 
 class CustomAssetModelLoader(
     private val uriLoader: ModelLoader<Uri, InputStream>
 ) : ModelLoader<String, InputStream> {
     private val TAG = CustomAssetModelLoader::class.java.simpleName
+
+    private val SCHEMES = Collections.unmodifiableSet(setOf("http", "https"))
 
     private val ASSET_PATH_SEGMENT = "android_asset"
     private val ASSET_PREFIX = ContentResolver.SCHEME_FILE + ":///" + ASSET_PATH_SEGMENT + "/"
@@ -28,14 +31,13 @@ class CustomAssetModelLoader(
         return if (uri == null) {
             null
         } else {
-           return uriLoader.buildLoadData(uri, width, height, options)
+            return uriLoader.buildLoadData(uri, width, height, options)
         }
     }
 
     private fun getAssetUri(model: String): Uri? {
         return try {
-            // file:///android_asset/android_10.png
-            Uri.parse(ASSET_PREFIX + "android_studio.png")
+            Uri.parse(ASSET_PREFIX + "pluu.jpeg")
         } catch (e: NotFoundException) {
             Log.w(TAG, "Received invalid asset file: $model", e)
             null
@@ -43,7 +45,7 @@ class CustomAssetModelLoader(
     }
 
     override fun handles(model: String): Boolean {
-        return true
+        return SCHEMES.any { model.startsWith(it) }
     }
 
     class Factory : ModelLoaderFactory<String, InputStream> {

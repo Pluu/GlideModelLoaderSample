@@ -23,7 +23,7 @@ class CustomUriModelLoader(
         height: Int,
         options: Options
     ): ModelLoader.LoadData<Uri>? {
-        val uri = getResourceUri(R.drawable.ic_florist)
+        val uri = getResourceUri(R.drawable.ic_android)
         return if (uri == null) {
             null
         } else {
