@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnCustom.setOnClickListener {
             Glide.with(this)
-                .load("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/647px-Apple_logo_grey.svg.png")
+                .load("https://source.android.com/setup/images/Android_symbol_green_RGB.png")
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(binding.iv)
