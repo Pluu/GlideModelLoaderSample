@@ -9,7 +9,7 @@ import com.bumptech.glide.load.model.ModelLoader
 import com.bumptech.glide.load.model.ModelLoaderFactory
 import com.bumptech.glide.load.model.MultiModelLoaderFactory
 import java.io.InputStream
-import java.util.*
+import java.util.Collections
 
 class CustomAssetModelLoader(
     private val uriLoader: ModelLoader<Uri, InputStream>
@@ -31,6 +31,7 @@ class CustomAssetModelLoader(
         return if (uri == null) {
             null
         } else {
+            Log.d(TAG, "Intercept image for $model")
             return uriLoader.buildLoadData(uri, width, height, options)
         }
     }
