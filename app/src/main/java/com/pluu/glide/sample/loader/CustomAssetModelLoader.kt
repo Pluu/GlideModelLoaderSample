@@ -38,7 +38,7 @@ class CustomAssetModelLoader(
 
     private fun getAssetUri(model: String): Uri? {
         return try {
-            Uri.parse(ASSET_PREFIX + "pluu.jpeg")
+            Uri.parse(ASSET_PREFIX + "sample.png")
         } catch (e: NotFoundException) {
             Log.w(TAG, "Received invalid asset file: $model", e)
             null
